@@ -1,0 +1,41 @@
+{
+  "name": "xstate-toolbox",
+  "version": "0.0.4",
+  "description": "toolbox of xstate machines",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "run-p build:*",
+    "build:es": "node build.js",
+    "build:ts": "tsc --emitDeclarationOnly",
+    "lint": "xo --fix",
+    "test": "xo"
+  },
+  "xo": {
+    "ignores": [
+      "build.js"
+    ],
+    "rules": {
+      "new-cap": "off"
+    }
+  },
+  "repository": "https://github.com/ty-nat/xstate-toolbox",
+  "keywords": [
+    "xstate",
+    "utilities"
+  ],
+  "author": "ty-nat",
+  "license": "MIT",
+  "dependencies": {
+    "xstate": "^4.17.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.10.2",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.2.3",
+    "xo": "^0.38.2"
+  }
+}
