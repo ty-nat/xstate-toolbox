@@ -5,6 +5,7 @@ type ThrottleEvent = {type: 'RUN'; action: Action; delay?: number};
 type ThrottleContext = {
 	action?: Action;
 	isLocked: boolean;
+	delay: number;
 };
 type ThrottleState = {
 	value: 'idle';
@@ -19,7 +20,8 @@ const machine = createMachine<ThrottleContext, ThrottleEvent, ThrottleState>(
 		id: 'throttle',
 		initial: 'idle',
 		context: {
-			isLocked: false
+			isLocked: false,
+			delay: 100
 		},
 		states: {
 			idle: {
@@ -44,8 +46,8 @@ const machine = createMachine<ThrottleContext, ThrottleEvent, ThrottleState>(
 	},
 	{
 		delays: {
-			DELAY: (context, event) => {
-				return event.delay ?? 1000;
+			DELAY: context => {
+				return context.delay;
 			}
 		},
 		guards: {
