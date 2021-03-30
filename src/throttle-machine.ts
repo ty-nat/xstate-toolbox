@@ -1,7 +1,7 @@
 import {createMachine, assign} from 'xstate';
 
 type Action = (...x: any) => any;
-type ThrottleEvent = {type: 'RUN'; action: Action; delay?: number};
+type ThrottleEvent = {type: 'RUN'; action: Action};
 type ThrottleContext = {
 	action?: Action;
 	isLocked: boolean;
@@ -69,12 +69,7 @@ const machine = createMachine<ThrottleContext, ThrottleEvent, ThrottleState>(
 					isLocked: false
 				};
 			}),
-			doAction: context => context?.action && context.action(),
-			clearAction: assign((_, __) => {
-				return {
-					action: undefined
-				};
-			})
+			doAction: context => context?.action && context.action()
 		}
 	}
 );
