@@ -4,3 +4,4 @@
 
 - toggle-machine
 - throttle-machine
+- debounce-machine

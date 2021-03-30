@@ -1,6 +1,6 @@
 {
   "name": "xstate-toolbox",
-  "version": "0.0.4",
+  "version": "0.0.61",
   "description": "toolbox of xstate machines",
   "files": [
     "dist"
